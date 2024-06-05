@@ -93,7 +93,7 @@ const imageCtrl = {
       const zipData = await zip.generateAsync({ type: "nodebuffer" });
       res.set("Content-Disposition", 'attachment; filename="files.zip"');
       res.set("Content-Type", "application/zip");
-      res.status(200).send(zipData);
+      res.status(200).send(zipData).json({ msg: "Zip Successfully Sent!" });
     } catch (error) {
       console.log(error.message);
       return res.status(500).json({ msg: "Error" });
